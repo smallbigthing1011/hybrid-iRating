@@ -17,7 +17,7 @@ function onDeviceReady() {
     let reportQuery =
       "CREATE TABLE IF NOT EXISTS Report(Id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT NOT NULL, Type TEXT NOT NULL, DateVisit TEXT NOT NULL, Average INTEGER NOT NULL, Service TEXT NOT NULL, Cleanliness TEXT NOT NULL, Food TEXT NOT NULL, Note TEXT NOT NULL, Account_Id INTEGER NOT NULL, Restaurant_Id INTEGER NOT NULL, Reporter_Name TEXT NOT NULL, FOREIGN KEY (Account_Id) REFERENCES Account(Id), FOREIGN KEY (Restaurant_Id) REFERENCES Restaurant(Id), FOREIGN KEY (Reporter_Name) REFERENCES Account(Name))";
     let noteQuery =
-      "CREATE TABLE IF NOT EXISTS Note(Id INTEGER PRIMARY KEY AUTOINCREMENT, Content TEXT NOT NULL, Account_Id INTEGER NOT NULL, Report_Id INTEGER NOT NULL, FOREIGN KEY (Account_Id) REFERENCES Account(Id), FOREIGN KEY (Report_Id) REFERENCES Restaurant(Id))";
+      "CREATE TABLE IF NOT EXISTS Note(Id INTEGER PRIMARY KEY AUTOINCREMENT, Content TEXT NOT NULL, Account_Id INTEGER NOT NULL, Report_Id INTEGER NOT NULL, FOREIGN KEY (Account_Id) REFERENCES Account(Id), FOREIGN KEY (Report_Id) REFERENCES Report(Id))";
     tx.executeSql(accountQuery, [], createSuccess, transError);
     tx.executeSql(restaurantQuery, [], createSuccess, transError);
     tx.executeSql(reportQuery, [], createSuccess, transError);
@@ -97,7 +97,7 @@ function signIn(event) {
         }
       );
     });
-  } else alert("Please full fill the form!");
+  }
 }
 
 $(document).on("vclick", "#takeImage", takePicture);
@@ -125,10 +125,6 @@ function createRestaurant(event) {
   if (image == "" || image == undefined) {
     image = "./img/default.png";
   }
-  // $("#popupAsked").append(`<p>Restaurant: ${name}</p>`);
-  // $("#popupAsked").append(`<p>Type: ${type}</p>`);
-  // $("#popupAsked").append(`<p>City: ${city}</p>`);
-  // $("#popupAsked").append(`<p>District: ${district}</p>`);
 
   db.transaction((tx) => {
     let query =
@@ -137,6 +133,7 @@ function createRestaurant(event) {
       query,
       [name, type, city, district, image],
       function () {
+        storage.setItem("img", "");
         getRestaurants();
       },
       transError
@@ -304,6 +301,7 @@ function saveReport(event) {
     window.location.href = "#rating-page";
     $("#err").text("Please enter all the field required").css("color", "red");
   } else {
+    $("#err").text("");
     db.transaction((tx) => {
       let query =
         "INSERT INTO Report (Name, Type, DateVisit, Average, Service, Cleanliness, Food, Note, Account_Id,  Restaurant_Id, Reporter_Name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -420,7 +418,7 @@ function viewReport(data) {
       );
 
       $(document).on("vclick", `#${item.Id}butn`, function () {
-        addComment(item.Id);
+        return addComment(item.Id);
       });
 
       $(`#${item.Id}service`).rateYo({
