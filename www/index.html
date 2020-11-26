@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!-- <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"
+    /> -->
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, width=device-width, viewport-fit=cover"
+    />
+    <!-- <meta name="color-scheme" content="light dark" /> -->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/jquery.rateyo.css" />
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/jquery.rateyo.js"></script>
+    <script src="cordova.js"></script>
+    <script src="js/index.js"></script>
+    <script
+      src="https://kit.fontawesome.com/3fd78d3b9b.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div data-role="page" class="d-flex" id="signin-page">
+      <div data-role="main" class="ui-content">
+        <div id="icon" class="d-flex">
+          <img id="logo" src="img/logo.jpg" alt="logo" />
+        </div>
+        <form id="signin">
+          <input
+            type="text"
+            name="signin-username"
+            id="signin-username"
+            placeholder="Username"
+          />
+          <input
+            type="password"
+            name="signin-password"
+            id="signin-password"
+            placeholder="Password"
+          />
+          <input type="submit" value="Sign-in" />
+        </form>
+
+        <div id="svg">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="248"
+            height="2"
+            viewBox="0 0 248 1"
+            style="align-self: center"
+          >
+            <g
+              id="Component_1_1"
+              data-name="Component 1 – 1"
+              transform="translate(0 0.5)"
+            >
+              <line
+                id="Line_3"
+                data-name="Line 3"
+                x2="248"
+                fill="rgba(0,0,0,0)"
+                stroke="#fff"
+                stroke-width="5"
+              />
+            </g>
+          </svg>
+        </div>
+
+        <p class="dont">Don't have an account?</p>
+        <a href="#signup-page">
+          <button id="signup">Sign-up</button>
+        </a>
+      </div>
+    </div>
+    <div data-role="page" class="d-flex" id="signup-page">
+      <div data-role="main" class="ui-content">
+        <div id="icon" class="d-flex">
+          <img id="logo" src="img/logo.jpg" alt="logo" />
+        </div>
+        <form id="signup">
+          <input
+            type="text"
+            name="signup-username"
+            id="signup-username"
+            placeholder="Username"
+            required
+          />
+          <input
+            type="password"
+            name="signup-password"
+            id="signup-password"
+            placeholder="Password"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+            required
+          />
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            placeholder="Phone"
+            required
+          />
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Name"
+            required
+          />
+          <input type="submit" value="Sign-up" />
+        </form>
+      </div>
+    </div>
+    <div data-role="page" id="home-page">
+      <div data-role="header" id="header">Home</div>
+      <div data-role="main" class="ui-content">
+        <h2 id="welcome"></h2>
+        <div id="icon" class="d-flex">
+          <img id="logo" src="img/logo.jpg" alt="logo" />
+        </div>
+        <h3>Want to have some experience?</h3>
+        <div id="icon" class="d-flex">
+          <img src="img/giphy.gif" alt="logo" />
+        </div>
+      </div>
+      <div data-role="footer" data-position="fixed">
+        <div data-role="navbar" data-grid="b">
+          <ul>
+            <li>
+              <a href="#home-page"
+                ><i class="fas fa-home"></i>
+                <p>Home</p></a
+              >
+            </li>
+            <li>
+              <a href="#restaurants-page"
+                ><i class="fas fa-store"></i>
+                <p>Restaurants</p></a
+              >
+            </li>
+            <li>
+              <a href="#ratingview-page">
+                <i class="fas fa-star-half-alt"></i>
+                <p>Rating</p></a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div data-role="page" id="restaurants-page">
+      <div data-role="header">Restaurant</div>
+      <div data-role="main" class="ui-content">
+        <input
+          type="text"
+          id="restaurant-search"
+          placeholder="Search for restaurant's type"
+        />
+        <a
+          href="#popupAddRestaurant"
+          data-rel="popup"
+          class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a"
+          data-position-to="window"
+          data-transition="slideup"
+          ><i class="fas fa-plus"></i
+        ></a>
+        <div
+          data-role="popup"
+          id="popupAddRestaurant"
+          data-theme="a"
+          class="ui-corner-all"
+        >
+          <form id="createRestaurant">
+            <div style="padding: 10px 20px">
+              <h3>Restaurant's information</h3>
+              <button id="takeImage">
+                <i class="fas fa-camera-retro"></i>
+              </button>
+              <input
+                type="text"
+                name="restaurant-name"
+                id="restaurant-name"
+                placeholder="Name"
+                required
+              />
+              <select name="type" id="restaurant-type" required>
+                <option disabled="disabled">Restaurant's type ...</option>
+                <option value="Fast food">Fast food</option>
+                <option value="Sea food">Sea food</option>
+                <option value="Korean food">Korean food</option>
+                <option value="India food">India food</option>
+                <option value="Chinese food">Chinese food</option>
+                <option value="Japanese food">Japanese food</option>
+              </select>
+              <input
+                type="text"
+                name="city"
+                id="city"
+                placeholder="City"
+                required
+              />
+              <input
+                type="text"
+                name="district"
+                id="district"
+                placeholder="District"
+                required
+              />
+              <input type="submit" value="Create" />
+            </div>
+          </form>
+        </div>
+        <div id="restaurants"></div>
+      </div>
+      <div data-role="footer" data-position="fixed">
+        <div data-role="navbar" data-grid="b">
+          <ul>
+            <li>
+              <a href="#home-page"
+                ><i class="fas fa-home"></i>
+                <p>Home</p></a
+              >
+            </li>
+            <li>
+              <a href="#restaurants-page"
+                ><i class="fas fa-store"></i>
+                <p>Restaurants</p></a
+              >
+            </li>
+            <li>
+              <a href="#ratingview-page">
+                <i class="fas fa-star-half-alt"></i>
+                <p>Rating</p></a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div data-role="page" id="ratingview-page">
+      <div data-role="header">Ratings view</div>
+      <div data-role="main" class="ui-content">
+        <div id="rating-search">
+          <input
+            type="text"
+            id="ratingsearch-inp"
+            placeholder="Search for restaurant's type"
+          />
+        </div>
+        <div id="reportview" data-role="collapsibleset"></div>
+        <div id="ratepoint"></div>
+      </div>
+      <div data-role="footer" data-position="fixed">
+        <div data-role="navbar" data-grid="b">
+          <ul>
+            <li>
+              <a href="#home-page"
+                ><i class="fas fa-home"></i>
+                <p>Home</p></a
+              >
+            </li>
+            <li>
+              <a href="#restaurants-page"
+                ><i class="fas fa-store"></i>
+                <p>Restaurants</p></a
+              >
+            </li>
+            <li>
+              <a href="#ratingview-page">
+                <i class="fas fa-star-half-alt"></i>
+                <p>Rating</p></a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div data-role="page" id="rating-page">
+      <div data-role="header">Rate</div>
+      <div data-role="main" class="ui-content">
+        <p id="err"></p>
+        <input
+          type="text"
+          name="restaurant-report"
+          id="restaurant-report"
+          placeholder="Restaurant's name"
+        />
+        <select name="type" id="report-type">
+          <option disabled="disabled">Restaurant's type ...</option>
+          <option value="Fast food">Fast food</option>
+          <option value="Sea food">Sea food</option>
+          <option value="Korean food">Korean food</option>
+          <option value="India food">India food</option>
+          <option value="Chinese food">Chinese food</option>
+          <option value="Japanese food">Japanese food</option>
+        </select>
+        <input type="date" id="date" placeholder="Date time visited" />
+        <input
+          type="number"
+          id="price"
+          name="price"
+          placeholder="Average price/person"
+        />
+        <textarea
+          name="note"
+          id="note"
+          cols="30"
+          rows="10"
+          placeholder="Your note"
+        ></textarea>
+        <table class="rating-star">
+          <tr>
+            <th>Rich</th>
+            <td><div id="rating-service-star"></div></td>
+            <td><div id="rating-service-point">0.0</div></td>
+          </tr>
+
+          <tr>
+            <th>Smart</th>
+            <td><div id="rating-cleanliness-star"></div></td>
+            <td><div id="rating-cleanliness-point">0.0</div></td>
+          </tr>
+
+          <tr>
+            <th>Handsome</th>
+            <td><div id="rating-food-star"></div></td>
+            <td><div id="rating-food-point">0.0</div></td>
+          </tr>
+        </table>
+        <input
+          type="text"
+          name="reportername"
+          id="reportername"
+          placeholder="Reporter's name"
+        />
+
+        <a
+          href="#popupAsk"
+          data-rel="popup"
+          class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a"
+          id="popupa"
+          data-position-to="window"
+          data-transition="slideup"
+          >Create Report
+        </a>
+        <div
+          data-role="popup"
+          id="popupAsk"
+          data-theme="a"
+          class="ui-corner-all"
+        >
+          <div id="precontent">
+            <p id="prename"></p>
+            <p id="pretype"></p>
+            <p id="predate"></p>
+            <p id="preprice"></p>
+            <p id="prenote"></p>
+            <p id="preservice"></p>
+            <p id="precleanliness"></p>
+            <p id="prefood"></p>
+            <p id="prereporter"></p>
+          </div>
+          <div id="btnplace">
+            <button id="report">Yes</button>
+            <button id="back" data-rel="back">Cancel</button>
+          </div>
+        </div>
+      </div>
+      <div data-role="footer" data-position="fixed">
+        <div data-role="navbar" data-grid="b">
+          <ul>
+            <li>
+              <a href="#home-page"
+                ><i class="fas fa-home"></i>
+                <p>Home</p></a
+              >
+            </li>
+            <li>
+              <a href="#restaurants-page"
+                ><i class="fas fa-store"></i>
+                <p>Restaurants</p></a
+              >
+            </li>
+            <li>
+              <a href="#ratingview-page">
+                <i class="fas fa-star-half-alt"></i>
+                <p>Rating</p></a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

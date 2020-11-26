@@ -1,0 +1,136 @@
+.d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ui-page,
+.ui-page-theme-a,
+.ui-page-active {
+  font-family: "Open Sans", sans-serif;
+  background-size: contain;
+  background-color: #028090;
+}
+ul li {
+  list-style-type: none;
+  margin-bottom: 20px;
+}
+ul li a {
+  color: black;
+  font-size: 20px;
+}
+a {
+  text-decoration: none;
+}
+#icon {
+  height: 200px;
+}
+#logo {
+  width: 30%;
+  border-radius: 15px;
+}
+canvas {
+  width: 100vw;
+  height: 100px;
+}
+#main {
+  height: 100vh;
+}
+.ui-header,
+.ui-bar-inherit {
+  height: 60px !important;
+  text-align: center;
+  color: #028090 !important;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="mail"],
+input[type="date"],
+input[type="submit"],
+button,
+h2,
+h3,
+h4 {
+  font-family: "Open Sans", sans-serif;
+  color: black;
+  text-shadow: none;
+}
+.ui-btn,
+.ui-input-btn {
+  font-family: "Open Sans", sans-serif;
+  text-shadow: none !important;
+  border: none;
+  color: white !important;
+  background-color: #28a6b6 !important;
+}
+p {
+  font-family: "Open Sans", sans-serif;
+
+  text-shadow: none;
+  color: black;
+}
+svg {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.ui-page-theme-a .ui-btn {
+  background-color: #028090;
+  border: none;
+  box-shadow: none;
+}
+button {
+  background-color: #28a6b6;
+  border: none;
+  padding: 10px;
+  width: 100px;
+  margin-left: 10px;
+  border-radius: 7px;
+}
+.dont {
+  text-align: center;
+}
+#restaurants > div {
+  border: 1px solid black;
+  border-radius: 7px;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+#restaurants > div > p {
+  color: white;
+  margin-left: 50px;
+}
+img {
+  width: 30%;
+  border-radius: 7px;
+}
+#precontent {
+  padding: 10px;
+  text-align: left;
+}
+#popupAsk {
+  width: 100%;
+}
+#svg {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.notearea > input[type="text"] {
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid black;
+  color: white;
+  outline: none;
+}
+.average > div > span {
+  margin-left: 200px;
+  color: white;
+}
