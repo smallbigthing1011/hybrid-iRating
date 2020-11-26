@@ -27,6 +27,9 @@ function onDeviceReady() {
 function createSuccess() {
   console.log("Create success!");
 }
+function transError(err) {
+  alert("Error: " + err.code);
+}
 var storage = window.localStorage;
 function insertSuccess(username, password) {
   db.transaction((tx) => {
@@ -48,9 +51,6 @@ function insertSuccess(username, password) {
 $(document).on("pageshow", "#home-page", function () {
   $("#welcome").text(`Welcome ${storage.getItem("accName")},`);
 });
-function transError(err) {
-  alert("Error: " + err.code);
-}
 
 $(document).on("submit", "#signup", signUp);
 function signUp(event) {
