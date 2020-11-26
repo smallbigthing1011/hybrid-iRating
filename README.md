@@ -17,7 +17,10 @@ Platform: Cordova Android
 Plugins:
 _cordova-plugin-camera
 _cordova_plugin-whitelist
+
 Usage
+
 The code is wrapped with Cordova so that you need to first add the plugins listed above.
 Run file index.html, this is the file for front-end to render the components and pages. Files in folder js and css has already been linked to use.
+
 Workflow of the app: Sign-up => Sign-in => Home page => Restaurants page => Create/Delete Restaurant => Create/Delete a restaurant rating (report) => Rating page => Rating view page => Leave extra note.
