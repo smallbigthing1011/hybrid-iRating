@@ -414,12 +414,12 @@ function viewReport(data) {
       $(`#${item.Id}wrapper`).append(`<p>From: ${item.Reporter_Name}</p>`);
       $(`#${item.Id}wrapper`).append(`<div id="${item.Id}comment"></div>`);
       $(`#${item.Id}wrapper`).append(
-        `<div class="notearea"><input type="text" id="${item.Id}inp" /><button id="${item.Id}butn">Add note</button></div>`
+        `<div class="notearea"><input type="text" class="noteinp" id="${item.Id}inp" /><button class="notebtn" id="${item.Id}">Add note</button></div>`
       );
 
-      $(document).on("vclick", `#${item.Id}butn`, function () {
-        return addComment(item.Id);
-      });
+      // $(document).on("vclick", `#${item.Id}butn`, function () {
+      //   return addComment(item.Id);
+      // });
 
       $(`#${item.Id}service`).rateYo({
         rating: item.Service,
@@ -441,7 +441,9 @@ function viewReport(data) {
   }
 }
 $(document).on("keypress", "#ratingsearch-inp", searchReport);
-
+$(document).on("vclick", ".notebtn", function () {
+  addComment($(this).attr("id"));
+});
 function searchReport() {
   let search = $("#ratingsearch-inp").val();
 
